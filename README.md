@@ -6,8 +6,20 @@
 ![Alt text](https://img.shields.io/badge/license-MIT-green.svg?style=flat)
 
 ```bash
-$ npm install react-yearly-calendar
+$ npm install @nfort/react-yearly-calendar
 ```
+
+
+# What's difference with react-yearly-calendar
+
+Remove props
+
+* selectedDay
+
+Add props 
+
+* selectedDays 
+ 
 
 # Demo
 **[http://belkalab.github.io/react-yearly-calendar/](http://belkalab.github.io/react-yearly-calendar)**
@@ -39,7 +51,7 @@ ReactDOM.render(
 | Prop | Type | Description | Default |
 |------|------|-------------|---------|
 | **year** | React.PropTypes.number.isRequired | year to be displayed | current year |
-| selectedDay | moment.js object | selected day | today |
+| selectedDays | [ moment.js object ] | selected day | today |
 | forceFullWeeks | React.PropTypes.bool | match calendar row end with row start | false |
 | showDaysOfWeek | React.PropTypes.bool | show table header with days of week | true |
 | showWeekSeparators | React.PropTypes.bool | shows a blank column between one week and another | true |

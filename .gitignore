@@ -60,4 +60,7 @@ Temporary Items
 
 # Custom
 lib
+.cache
+.idea
+dist
 

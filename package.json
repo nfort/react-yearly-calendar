@@ -1,13 +1,14 @@
 {
-  "name": "react-yearly-calendar",
-  "version": "1.2.1",
+  "name": "@nfort/react-yearly-calendar",
+  "version": "1.3.1",
   "description": "A yearly calendar built in React.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:BelkaLab/react-yearly-calendar"
+    "url": "git@github.com:nfort/react-yearly-calendar"
   },
   "main": "./lib/index.js",
   "scripts": {
+    "start": "parcel index.html",
     "clean": "rm -rf lib dist",
     "build": "babel src --out-dir lib",
     "prepublish": "NODE_ENV=development; npm run lint && npm run prettify && npm run build",
@@ -23,12 +24,14 @@
     "yearly",
     "react-component"
   ],
-  "author": "Belka <giovanni@belka.us> (http://belka.us)",
+  "author": "nfort",
   "license": "MIT",
   "dependencies": {
+    "immutable": "^3.8.2",
     "moment": "^2.13.0",
     "prop-types": "^15.6.0",
-    "react": "^16.0.0",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
     "react-moment-proptypes": "^1.5.0"
   },
   "devDependencies": {

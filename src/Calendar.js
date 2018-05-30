@@ -14,7 +14,7 @@ const propTypes = {
   selectRange: PropTypes.bool,
   onPickDate: PropTypes.func,
   onPickRange: PropTypes.func,
-  selectedDay: momentObj,
+  selectedDays: PropTypes.arrayOf(momentObj),
   customClasses: PropTypes.oneOfType([PropTypes.object, PropTypes.func])
 };
 
@@ -26,7 +26,7 @@ const defaultProps = {
   selectRange: false,
   onPickDate: null,
   onPickRange: null,
-  selectedDay: moment(),
+  selectedDays: [moment()],
   customClasses: null
 };
 

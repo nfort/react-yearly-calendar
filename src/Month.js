@@ -10,11 +10,11 @@ const propTypes = {
   month: PropTypes.number.isRequired,
   forceFullWeeks: PropTypes.bool.isRequired,
   showWeekSeparators: PropTypes.bool.isRequired,
-  selectedDay: momentObj.isRequired,
+  selectedDays: PropTypes.arrayOf(momentObj).isRequired,
   firstDayOfWeek: PropTypes.number.isRequired,
   selectingRange: PropTypes.arrayOf(momentObj),
   selectRange: PropTypes.bool.isRequired,
-  selectedRange: PropTypes.arrayOf(momentObj),
+  selectedRange: momentObj,
   customClasses: PropTypes.oneOfType([PropTypes.object, PropTypes.func]),
   dayClicked: PropTypes.func.isRequired,
   dayHovered: PropTypes.func.isRequired
@@ -105,8 +105,11 @@ class Month extends Component {
       }
 
       return (oldRangeStart <= month && month <= oldRangeEnd) || (newRangeStart <= month && month <= newRangeEnd);
-    } else if (this.props.selectedDay.month() === month || nextProps.selectedDay.month() === month) {
-      // single selectedDay changed: repaint months where selectedDay was and where will be
+    } else if (
+      this.props.selectedDays.some(day => day.month() === month) ||
+      nextProps.selectedDays.some(day => day.month() === month)
+    ) {
+      // single selectedDays changed: repaint months where selectedDays was and where will be
       return true;
     }
 
@@ -131,7 +134,7 @@ class Month extends Component {
       month,
       forceFullWeeks,
       showWeekSeparators,
-      selectedDay,
+      selectedDays,
       firstDayOfWeek,
       selectingRange,
       selectRange,
@@ -185,7 +188,7 @@ class Month extends Component {
           if (day.isSame(end, 'day')) {
             classes.push('range-right');
           }
-        } else if (day.isSame(selectedDay, 'day')) {
+        } else if (selectedDays.some(currentDay => day.isSame(currentDay, 'day'))) {
           classes.push('selected');
         }
 
